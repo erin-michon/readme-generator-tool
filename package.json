@@ -1,0 +1,26 @@
+{
+  "name": "readme-generator-tool",
+  "version": "1.0.0",
+  "description": "A command line tool that will generate a README.md template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erin-michon/readme-generator-tool.git"
+  },
+  "keywords": [
+    "readme.md",
+    "generator"
+  ],
+  "author": "e. michon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erin-michon/readme-generator-tool/issues"
+  },
+  "homepage": "https://github.com/erin-michon/readme-generator-tool#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
