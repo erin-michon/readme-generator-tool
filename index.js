@@ -5,8 +5,6 @@ const util = require("util")
 
 const generateMarkdown = require('./utils/generateMarkdown');
 
-
-
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer
@@ -62,9 +60,9 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(markdown) {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', fileName, data, err => {
+        fs.writeFile('./dist/README.md', markdown, err => {
           if (err) {
             reject(err);
             return;
@@ -85,17 +83,13 @@ function init() {}
 // Function call to initialize app
 init();
 
-questions();
-
-
-// promptUser()
-//   .then(promptProject)
-//   .then(portfolioData => {
-//     return generatePage(portfolioData);
-//   })
-//   .then(pageHTML => {
-//     return writeFile(pageHTML);
-//   })
+questions()
+  .then(data => {
+    return generateMarkdown(data);
+  })
+  .then(markdown => {
+    return writeToFile(markdown);
+  })
 //   .then(writeFileResponse => {
 //     console.log(writeFileResponse);
 //     return copyFile();
