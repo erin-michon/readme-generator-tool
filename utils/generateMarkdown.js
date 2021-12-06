@@ -1,6 +1,4 @@
 const { makeBadge, ValidationError } = require('badge-maker')
-let licenseText = '';
-let licenseType;
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -15,47 +13,35 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(data) {
 
-  console.log(data.license)
  
   if (data.license = 'MIT License') {
     
-    licenseType = "[MIT License](https://choosealicense.com/licenses/mit/)";
+    data.license = "[MIT License](https://choosealicense.com/licenses/mit/)";
    
   } else if (data.license = 'GNU GPLv3' ) {
 
-    licenseType = "[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)";
+    data.license = "[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)";
 
   } else if (data.license = 'Apache License 2.0') {
 
-    licenseType = "[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)";
+    data.license = "[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)";
 
   } else if (data.license = 'ISC License') {
 
-    licenseType = "[ISC License](https://choosealicense.com/licenses/isc/)";
+    data.license = "[ISC License](https://choosealicense.com/licenses/isc/)";
 
   } else if (data.license = 'None') {  
     
-    licenseType = '';
+    data.license = '';
   };
   
-  return licenseType;
-
 }
       
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(data) {
-
-  if (data.license = 'None') {  
-    
-    licenseText = '';
-
-  } else {
-
-    licenseText = "This application is coverd by the following license:";
-  }
-
+function renderLicenseSection() {
+;
 }
 
   
@@ -63,7 +49,6 @@ function renderLicenseSection(data) {
 function generateMarkdown(data) {
   
   renderLicenseLink(data);
-  renderLicenseSection(data);
 
   return `# ${data.title}
   
@@ -87,7 +72,7 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## License:
-  ${licenseText} ${data.license}
+  ${data.license}
 
   ## Contributing:
   ${data.contrib}
