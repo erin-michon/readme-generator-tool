@@ -4,6 +4,9 @@ const fs = require('fs');
 const util = require("util")
 
 const generateMarkdown = require('./utils/generateMarkdown');
+const renderLicenseSection = require('./utils/generateMarkdown');
+const renderLicenseLink = require('./utils/generateMarkdown'); 
+
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -12,22 +15,24 @@ const questions = () => {
         {
             type: 'input',
             name: 'title',
-            message: "What is the title of your project?"
+            message: "What is the title of your project?",
+            default: "Project Title"
         },
         {
             type: 'input',
             name: 'description',
-            message: "Please provide a description of your project."
+            message: "Please provide a description of your project.",
         },
         {
             type: 'input',
             name: 'installation',
-            message: "Please provide the required installation steps for your project."
+            message: "Please provide the required installation steps for your project.",
         },
         {
             type: 'input',
             name: 'usage',
-            message: "Please provide instructions and examples for the use of your project."
+            message: "Please provide instructions and examples for the use of your project.",
+            default: ""
         },
         {
             type: 'list',
@@ -78,12 +83,8 @@ function writeToFile(markdown) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
-questions()
+function init() {
+    questions()
   .then(data => {
     return generateMarkdown(data);
   })
@@ -100,3 +101,8 @@ questions()
 //   .catch(err => {
 //     console.log(err);
 //   });
+}
+
+// Function call to initialize app
+init();
+
